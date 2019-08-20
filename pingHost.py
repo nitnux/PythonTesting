@@ -1,4 +1,5 @@
 #python3 code
+#for python use raw_innput()
 import os
 print("enter the domain with ip to ping\n")
 while True:
