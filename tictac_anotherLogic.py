@@ -4,9 +4,9 @@ def displayBoard(theBoard):
     count=0
     li=list(theBoard.keys())
     for c in li:
-        print(theBoard[c]+'|',end='')
-        count=count+1
-        if count > 2:
+         print(theBoard[c]+'|',end='')
+         count=count+1
+         if count > 2:
             print("")
             while count > 0:
                 print('--',end='')
@@ -18,7 +18,7 @@ def updateBoard(x,y,theBoard):
     print(theBoard)
     displayBoard(theBoard)
 def playerInput(co,chance,theBoard):
-
+    
     print('Enter player{chance} choice  '.format(chance=chance))
     x=input()
     print('Enter player{chance} posiion '.format(chance=chance))
@@ -27,121 +27,110 @@ def playerInput(co,chance,theBoard):
 
         if theBoard.get(y) == ' ':
             updateBoard(x,y,theBoard)
-            print(co)
+            print(y)
             if co > 4 and co < 9:
                 declareResult(y,chance,theBoard)
         else:
             print('value is initialise')
-            return False
-        return True
     else:
-        return False
+        pass
 def declareResult(y,chance,theBoard):
-
+    print(y)
     if y == 'TL':
-        print('TL')
-        if  not bool(ord(theBoard[y]) ^ ord(theBoard['TM']) & ord(theBoard['TR']) ):
+        if theBoard[y] == theBoard['TM'] == theBoard['TR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['MM']) & ord(theBoard['LR'])):
+        elif theBoard[y] == theBoard['MM'] == theBoard['LR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['ML']) & ord(theBoard['LL']) ):
+        elif theBoard[y] == theBoard['ML'] == theBoard['LL']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
         else:
             pass
     elif y == 'TM':
-        print('TM')
-        if  not bool(ord(theBoard[y]) ^ ord(theBoard['TL']) & ord(theBoard['TR'])):
+        if  theBoard[y] == theBoard['TL'] == theBoard['TR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['MM']) & ord(theBoard['LM'])):
+        elif theBoard[y] == theBoard['MM'] == theBoard['LM'] :
             print('player {chance}win'.format(chance=chance))
             sys.exit()
         else:
             pass
     elif y == 'TR':
-        print('TR')
-        if  not bool(ord(theBoard[y]) ^ ord(theBoard['TM']) & ord(theBoard['TL'])):
+        if theBoard[y] == theBoard['TM'] == theBoard['TL']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['LR']) & ord(theBoard['MR'])):
+        elif theBoard[y] == theBoard['LR'] == theBoard['MR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['MM']) & ord(theBoard['LL'])):
+        elif theBoard[y] == theBoard['MM'] == theBoard['LL']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
         else:
             pass
     elif y == 'ML':
-        print('ML')
-        if  not bool(ord(theBoard[y]) ^ ord(theBoard['TL']) & ord(theBoard['LL'])):
+        if theBoard[y] == theBoard['TL'] == theBoard['LL']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['MM']) & ord(theBoard['MR'])):
+        elif theBoard[y] == theBoard['MM'] == theBoard['MR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
         else:
             pass
     elif y == 'MM':
-        print('MM')
-        if  not bool(ord(theBoard[y]) ^ ord(theBoard['TL']) & ord(theBoard['LR'])):
+        if theBoard[y] == theBoard['TL'] == theBoard['LR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['TM']) & ord(theBoard['LM'])):
+        elif theBoard[y] == theBoard['TM'] == theBoard['LM']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['LL']) & ord(theBoard['TR'])):
+        elif theBoard[y] == theBoard['LL'] == theBoard['TR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['ML']) & ord(theBoard['MR'])):
+        elif theBoard[y] == theBoard['ML'] == theBoard['MR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
         else:
             pass
     elif y == 'MR':
-        print('MR')
-        if  not bool(ord(theBoard[y]) ^ ord(theBoard['LR']) & ord(theBoard['TR'])):
+        if theBoard[y] == theBoard['LR'] == theBoard['TR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['ML']) & ord(theBoard['MM'])):
+        elif theBoard[y] == theBoard['ML'] == theBoard['MM']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
         else:
             pass
     elif y == 'LL':
-        print('LL')
-        if  not bool(ord(theBoard[y]) ^ ord(theBoard['ML']) & ord(theBoard['TL'])):
+        if theBoard[y] == theBoard['ML'] == theBoard['TL']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['LM']) & ord(theBoard['LR'])):
+        elif theBoard[y] == theBoard['LM'] == theBoard['LR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['MM']) & ord(theBoard['TR'])):
+        elif theBoard[y] == theBoard['MM'] == theBoard['TR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
         else:
             pass
     elif y == 'LM':
-        print('LM')
-        if  not bool(ord(theBoard[y]) ^ ord(theBoard['TM']) & ord(theBoard['MM'])):
+        if theBoard[y] == theBoard['TM'] == theBoard['MM']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['LL']) & ord(theBoard['LR'])):
+        elif theBoard[y] == theBoard['LL'] == theBoard['LR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
         else:
             pass
     elif y == 'LR':
-        print('LR')
-        if  not bool(ord(theBoard[y]) ^ ord(theBoard['MR']) & ord(theBoard['TR'])):
+        if theBoard[y] == theBoard['MR'] == theBoard['TR']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['MM']) & ord(theBoard['TL'])):
+        elif theBoard[y] == theBoard['MM'] == theBoard['TL']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
-        elif  not bool(ord(theBoard[y]) ^ ord(theBoard['LM']) & ord(theBoard['LL'])):
+        elif theBoard[y] == theBoard['LM'] == theBoard['LL']:
             print('player {chance}win'.format(chance=chance))
             sys.exit()
         else:
@@ -154,11 +143,11 @@ if __name__ == '__main__' :
             'ML':' ','MM':' ','MR':' ',
             'LL':' ','LM':' ','LR':' '
             }
-
+    
     displayBoard(theBoard)
     count=0
     co=0
-    while co < 9:
+    while co != 9:
         if count ==2:
             count=0
         else:
@@ -169,7 +158,6 @@ if __name__ == '__main__' :
             else:
                 co=count-1
                 count=count-1
-
 
 
 
